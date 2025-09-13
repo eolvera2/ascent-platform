@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expedition Briefing - The Ascent Platform</title>
+    <meta name="description" content="Get your comprehensive guide to navigating the college admissions landscape with expert insights and strategic planning.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../../assets/css/core/variables.css">
+    <link rel="stylesheet" href="../../assets/css/core/base.css">
+    <link rel="stylesheet" href="../../assets/css/core/layout.css">
+    <link rel="stylesheet" href="../../assets/css/components/navigation.css">
+    
+    <style>
+        .briefing-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .briefing-hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 50%, var(--color-primary) 100%);
+            color: var(--color-white);
+            padding: 4rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .briefing-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 80,90 20,90" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+            background-size: 80px 80px;
+            animation: drift 15s linear infinite;
+        }
+
+        @keyframes drift {
+            0% { transform: translateX(-80px); }
+            100% { transform: translateX(0); }
+        }
+
+        .briefing-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .briefing-title {
+            font-family: var(--font-family-heading);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .briefing-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .briefing-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .briefing-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            background: var(--color-white);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .briefing-sidebar {
+            background: var(--color-grey-50);
+            padding: 2rem;
+            border-right: 1px solid var(--color-grey-200);
+        }
+
+        .sidebar-title {
+            font-family: var(--font-family-heading);
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .briefing-nav {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--color-grey-700);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .briefing-main {
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-family-heading);
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--color-grey-600);
+            line-height: 1.6;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-accent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background: var(--color-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.75rem;
+            top: 1.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            border: 3px solid var(--color-white);
+            box-shadow: 0 0 0 3px var(--color-accent);
+        }
+
+        .timeline-grade {
+            font-weight: 700;
+            color: var(--color-accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-family: var(--font-family-heading);
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-tasks {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-tasks li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--color-grey-700);
+        }
+
+        .timeline-tasks li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: var(--color-grey-50);
+            border-radius: 15px;
+            padding: 2rem;
+            border-top: 4px solid var(--color-accent);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-family: var(--font-family-heading);
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .card-content {
+            color: var(--color-grey-700);
+            line-height: 1.5;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .checklist li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid var(--color-grey-200);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: var(--color-grey-400);
+            font-size: 1.2rem;
+        }
+
+        .checklist li.completed::before {
+            content: '☑';
+            color: var(--color-success);
+        }
+
+        .resource-list {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--color-white);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .resource-icon {
+            font-size: 1.5rem;
+            color: var(--color-accent);
+        }
+
+        .resource-info {
+            flex: 1;
+        }
+
+        .resource-title {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .resource-description {
+            color: var(--color-grey-600);
+            font-size: 0.9rem;
+        }
+
+        .action-panel {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .action-title {
+            font-family: var(--font-family-heading);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-light {
+            background: var(--color-white);
+            color: var(--color-primary);
+        }
+
+        .btn-light:hover {
+            background: var(--color-grey-100);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
+        }
+
+        .btn-outline:hover {
+            background: var(--color-white);
+            color: var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            .briefing-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .briefing-sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--color-grey-200);
+            }
+            
+            .briefing-nav {
+                display: flex;
+                gap: 0.5rem;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+            
+            .nav-item {
+                margin-bottom: 0;
+                min-width: fit-content;
+            }
+            
+            .timeline {
+                padding-left: 2rem;
+            }
+            
+            .timeline-item::before {
+                left: -1.75rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="../../index.html" class="brand-link">
+                    <span class="brand-icon">⛰️</span>
+                    <span class="brand-text">The Ascent Platform</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="../stages/basecamp/index.html" class="nav-link">Back to Basecamp</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="briefing-container">
+        <header class="briefing-hero">
+            <div class="briefing-icon">🗺️</div>
+            <h1 class="briefing-title">Expedition Briefing</h1>
+            <p class="briefing-subtitle">Your comprehensive guide to navigating the college admissions landscape with strategic precision and expert insights</p>
+            
+            <div class="briefing-stats">
+                <div class="stat">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Years Mapped</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Key Milestones</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Resources</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Success Rate</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="briefing-content">
+            <aside class="briefing-sidebar">
+                <h3 class="sidebar-title">Navigation</h3>
+                <ul class="briefing-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active" onclick="showSection('overview')">Mission Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="showSection('timeline')">4-Year Timeline</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="showSection('strategies')">Key Strategies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="showSection('requirements')">Requirements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" onclick="showSection('resources')">Resources</a>
+                    </li>
+                </ul>
+            </aside>
+
+            <main class="briefing-main">
+                <!-- Mission Overview Section -->
+                <section class="section active" id="overview">
+                    <div class="section-header">
+                        <div class="section-icon">🎯</div>
+                        <h2 class="section-title">Mission Overview</h2>
+                        <p class="section-description">
+                            Your journey to elite higher education is a strategic expedition requiring careful planning, consistent execution, and expert guidance. This briefing provides the roadmap to success.
+                        </p>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="card-icon">📊</div>
+                            <h3 class="card-title">The Current Landscape</h3>
+                            <div class="card-content">
+                                Elite colleges accept only 3-10% of applicants. The competition is global, and standards continue rising. Success requires strategic differentiation and exceptional execution.
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="card-icon">🚀</div>
+                            <h3 class="card-title">Your Strategic Advantage</h3>
+                            <div class="card-content">
+                                The Ascent Platform provides insider knowledge, proven strategies, and systematic execution frameworks that give you a significant competitive edge.
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="card-icon">🏆</div>
+                            <h3 class="card-title">Success Metrics</h3>
+                            <div class="card-content">
+                                We measure success not just by admissions, but by your growth, leadership development, and preparation for future impact in your chosen field.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4-Year Timeline Section -->
+                <section class="section" id="timeline">
+                    <div class="section-header">
+                        <div class="section-icon">⏰</div>
+                        <h2 class="section-title">Strategic Timeline</h2>
+                        <p class="section-description">
+                            A year-by-year breakdown of critical milestones and strategic priorities for your college admissions journey.
+                        </p>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-grade">9th Grade - Foundation</div>
+                            <h3 class="timeline-title">Build Your Base Camp</h3>
+                            <ul class="timeline-tasks">
+                                <li>Establish strong study habits and time management</li>
+                                <li>Take challenging courses and maintain high GPA</li>
+                                <li>Explore diverse extracurricular activities</li>
+                                <li>Begin developing leadership skills</li>
+                                <li>Take PSAT 8/9 for baseline assessment</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-grade">10th Grade - Exploration</div>
+                            <h3 class="timeline-title">Find Your Path</h3>
+                            <ul class="timeline-tasks">
+                                <li>Narrow extracurricular focus to 2-3 passion areas</li>
+                                <li>Take PSAT/NMSQT (National Merit consideration)</li>
+                                <li>Begin advanced coursework (AP/IB/Dual Enrollment)</li>
+                                <li>Develop meaningful relationships with teachers</li>
+                                <li>Start exploring potential college majors</li>
+                                <li>Consider summer programs at target universities</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-grade">11th Grade - Acceleration</div>
+                            <h3 class="timeline-title">Climb with Intensity</h3>
+                            <ul class="timeline-tasks">
+                                <li>Take SAT/ACT (aim for top 1% scores)</li>
+                                <li>Maximize AP course load while maintaining excellence</li>
+                                <li>Pursue leadership positions in key activities</li>
+                                <li>Begin college research and campus visits</li>
+                                <li>Develop relationships with guidance counselors</li>
+                                <li>Start scholarship research and applications</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-grade">12th Grade - Summit Push</div>
+                            <h3 class="timeline-title">Reach the Peak</h3>
+                            <ul class="timeline-tasks">
+                                <li>Complete and submit all college applications</li>
+                                <li>Write compelling personal essays</li>
+                                <li>Secure strong letters of recommendation</li>
+                                <li>Apply for financial aid and scholarships</li>
+                                <li>Prepare for college interviews</li>
+                                <li>Make final college decision and prepare for transition</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key Strategies Section -->
+                <section class="section" id="strategies">
+                    <div class="section-header">
+                        <div class="section-icon">⚡</div>
+                        <h2 class="section-title">Key Success Strategies</h2>
+                        <p class="section-description">
+                            Proven approaches that consistently lead to admission at elite institutions.
+                        </p>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="card-icon">📈</div>
+                            <h3 class="card-title">Academic Excellence</h3>
+                            <div class="card-content">
+                                <ul class="checklist">
+                                    <li>Maintain top 5% class rank</li>
+                                    <li>Take maximum rigorous coursework</li>
+                                    <li>Score in 99th percentile on standardized tests</li>
+                                    <li>Pursue intellectual interests beyond curriculum</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="card-icon">🌟</div>
+                            <h3 class="card-title">Distinctive Activities</h3>
+                            <div class="card-content">
+                                <ul class="checklist">
+                                    <li>Develop 1-2 areas of exceptional depth</li>
+                                    <li>Create measurable community impact</li>
+                                    <li>Pursue original research or innovation</li>
+                                    <li>Demonstrate sustained leadership</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="card-icon">✍️</div>
+                            <h3 class="card-title">Compelling Narrative</h3>
+                            <div class="card-content">
+                                <ul class="checklist">
+                                    <li>Craft a unique personal story</li>
+                                    <li>Demonstrate growth and resilience</li>
+                                    <li>Show authentic passion and purpose</li>
+                                    <li>Connect experiences to future goals</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Requirements Section -->
+                <section class="section" id="requirements">
+                    <div class="section-header">
+                        <div class="section-icon">📋</div>
+                        <h2 class="section-title">Elite College Requirements</h2>
+                        <p class="section-description">
+                            Understanding what top universities expect from successful applicants.
+                        </p>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="card-icon">📚</div>
+                            <h3 class="card-title">Academic Benchmarks</h3>
+                            <div class="card-content">
+                                <strong>GPA:</strong> 3.9+ unweighted, 4.3+ weighted<br>
+                                <strong>SAT:</strong> 1500+ (1550+ for Ivy League)<br>
+                                <strong>ACT:</strong> 33+ (35+ for Ivy League)<br>
+                                <strong>AP Exams:</strong> 8-12 exams with mostly 5s<br>
+                                <strong>Class Rank:</strong> Top 5% (Top 1% preferred)
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="card-icon">🏅</div>
+                            <h3 class="card-title">Extracurricular Excellence</h3>
+                            <div class="card-content">
+                                <strong>Leadership:</strong> Significant positions with impact<br>
+                                <strong>Service:</strong> 200+ hours with meaningful contribution<br>
+                                <strong>Awards:</strong> Regional/national recognition<br>
+                                <strong>Research:</strong> Published or presented work<br>
+                                <strong>Passion:</strong> Deep expertise in chosen areas
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="card-icon">💭</div>
+                            <h3 class="card-title">Intangible Qualities</h3>
+                            <div class="card-content">
+                                <strong>Intellectual Curiosity:</strong> Love of learning<br>
+                                <strong>Character:</strong> Integrity and authenticity<br>
+                                <strong>Impact:</strong> Positive change in community<br>
+                                <strong>Potential:</strong> Likelihood of future success<br>
+                                <strong>Fit:</strong> Alignment with institutional values
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Resources Section -->
+                <section class="section" id="resources">
+                    <div class="section-header">
+                        <div class="section-icon">🛠️</div>
+                        <h2 class="section-title">Essential Resources</h2>
+                        <p class="section-description">
+                            Tools, guides, and support systems to accelerate your progress.
+                        </p>
+                    </div>
+
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <div class="resource-icon">📝</div>
+                            <div class="resource-info">
+                                <div class="resource-title">Academic Planning Worksheet</div>
+                                <div class="resource-description">4-year course planning and GPA tracking</div>
+                            </div>
+                        </div>
+
+                        <div class="resource-item">
+                            <div class="resource-icon">🎯</div>
+                            <div class="resource-info">
+                                <div class="resource-title">Test Prep Strategy Guide</div>
+                                <div class="resource-description">SAT/ACT preparation timeline and resources</div>
+                            </div>
+                        </div>
+
+                        <div class="resource-item">
+                            <div class="resource-icon">🏆</div>
+                            <div class="resource-info">
+                                <div class="resource-title">Activity Portfolio Builder</div>
+                                <div class="resource-description">Framework for developing compelling extracurriculars</div>
+                            </div>
+                        </div>
+
+                        <div class="resource-item">
+                            <div class="resource-icon">🔍</div>
+                            <div class="resource-info">
+                                <div class="resource-title">College Research Database</div>
+                                <div class="resource-description">Comprehensive profiles of 200+ elite institutions</div>
+                            </div>
+                        </div>
+
+                        <div class="resource-item">
+                            <div class="resource-icon">💡</div>
+                            <div class="resource-info">
+                                <div class="resource-title">Essay Writing Masterclass</div>
+                                <div class="resource-description">Step-by-step guide to compelling personal statements</div>
+                            </div>
+                        </div>
+
+                        <div class="resource-item">
+                            <div class="resource-icon">👥</div>
+                            <div class="resource-info">
+                                <div class="resource-title">Mentorship Network</div>
+                                <div class="resource-description">Connect with successful alumni and current students</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-panel">
+                        <h3 class="action-title">Ready to Begin Your Expedition?</h3>
+                        <p>Access your personalized roadmap and start climbing today</p>
+                        <div class="action-buttons">
+                            <a href="../stages/pathfinder/index.html" class="btn btn-light">Start Your Journey</a>
+                            <a href="compass-quiz.html" class="btn btn-outline">Take Assessment</a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </main>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Activate corresponding nav link
+            event.target.classList.add('active');
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0.1s';
+                        entry.target.style.animationFillMode = 'both';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animations
+            document.querySelectorAll('.info-card, .timeline-item, .resource-item').forEach(element => {
+                observer.observe(element);
+            });
+
+            // Simulate checklist interactions
+            document.querySelectorAll('.checklist li').forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('completed');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

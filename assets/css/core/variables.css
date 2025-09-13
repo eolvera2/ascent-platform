@@ -1,0 +1,162 @@
+/* ==========================================================================
+   CSS Custom Properties - Brand Variables
+   ========================================================================== */
+
+:root {
+  /* Brand Color Palette - Mountain Ascent Theme */
+  --color-primary: #0A192F;        /* Deep Navy Blue - stability, wisdom */
+  --color-accent: #D4AF37;         /* Gold - achievement, premium quality */
+  --color-accent-alt: #B87333;     /* Copper - alternative accent */
+  --color-secondary: #647A8F;      /* Slate Blue - calm, professional */
+  --color-secondary-light: #F4F6F8; /* Light Grey - clean background */
+  
+  /* Extended Color System */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-grey-50: #FAFBFC;
+  --color-grey-100: #F4F6F8;
+  --color-grey-200: #E4E7EA;
+  --color-grey-300: #D1D5DA;
+  --color-grey-400: #959DA5;
+  --color-grey-500: #647A8F;
+  --color-grey-600: #4F5B69;
+  --color-grey-700: #3A4248;
+  --color-grey-800: #2C3E50;
+  --color-grey-900: #1A1A1A;
+
+  /* Status Colors */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  /* Typography Scale */
+  --font-family-heading: 'Playfair Display', serif;
+  --font-family-body: 'Lato', sans-serif;
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Font Sizes - Fluid Typography */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);     /* 12-14px */
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);       /* 14-16px */
+  --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);       /* 16-18px */
+  --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);      /* 18-20px */
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);       /* 20-24px */
+  --font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 1.875rem);        /* 24-30px */
+  --font-size-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.25rem);   /* 30-36px */
+  --font-size-4xl: clamp(2.25rem, 1.9rem + 1.75vw, 3rem);        /* 36-48px */
+  --font-size-5xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);            /* 48-64px */
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  --line-height-loose: 1.8;
+
+  /* Spacing Scale */
+  --space-xs: 0.25rem;    /* 4px */
+  --space-sm: 0.5rem;     /* 8px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 2.5rem;    /* 40px */
+  --space-3xl: 3rem;      /* 48px */
+  --space-4xl: 4rem;      /* 64px */
+  --space-5xl: 5rem;      /* 80px */
+  --space-6xl: 6rem;      /* 96px */
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(10, 25, 47, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(10, 25, 47, 0.1), 0 2px 4px -1px rgba(10, 25, 47, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(10, 25, 47, 0.1), 0 4px 6px -2px rgba(10, 25, 47, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(10, 25, 47, 0.1), 0 10px 10px -5px rgba(10, 25, 47, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(10, 25, 47, 0.25);
+
+  /* Z-Index Scale */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+
+  /* Breakpoints (for reference in media queries) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* Container Widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1400px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+
+  /* Component-Specific Variables */
+  --nav-height: 4rem;
+  --hero-min-height: calc(100vh - var(--nav-height));
+  --section-padding: var(--space-5xl);
+  --section-padding-mobile: var(--space-3xl);
+
+  /* Button Variants */
+  --btn-padding-sm: var(--space-sm) var(--space-lg);
+  --btn-padding-md: var(--space-md) var(--space-xl);
+  --btn-padding-lg: var(--space-lg) var(--space-2xl);
+
+  /* Form Elements */
+  --input-padding: var(--space-md);
+  --input-border: 1px solid var(--color-grey-300);
+  --input-border-focus: 1px solid var(--color-accent);
+  --input-radius: var(--radius-md);
+
+  /* Animation Curves */
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Dark Mode Support (Future Enhancement) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-primary);
+    --color-text: var(--color-white);
+    --color-text-muted: var(--color-grey-300);
+    
+    /* Adjust shadows for dark mode */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: none;
+    --transition-normal: none;
+    --transition-slow: none;
+  }
+}

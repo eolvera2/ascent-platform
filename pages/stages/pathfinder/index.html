@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathfinder - The Ascent Platform</title>
+    <meta name="description" content="Navigate your high school journey with strategic planning. Build your academic profile and explore leadership opportunities at Pathfinder.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../../../assets/css/core/variables.css">
+    <link rel="stylesheet" href="../../../assets/css/core/base.css">
+    <link rel="stylesheet" href="../../../assets/css/core/layout.css">
+    <link rel="stylesheet" href="../../../assets/css/components/navigation.css">
+    <link rel="stylesheet" href="../../../assets/css/components/hero.css">
+    <link rel="stylesheet" href="../../../assets/css/components/stages.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../../../index.html" class="brand-link">
+                    <span class="brand-icon">⛰️</span>
+                    <span class="brand-text">The Ascent Platform</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="../../../index.html" class="nav-link">Home</a>
+                <a href="../basecamp/index.html" class="nav-link">Basecamp</a>
+                <a href="../blueprint/index.html" class="nav-link">Blueprint</a>
+                <a href="../launchpad/index.html" class="nav-link">Launchpad</a>
+                <a href="../summit/index.html" class="nav-link">Summit</a>
+                <a href="../../auth/login.html" class="nav-link nav-login">Sign In</a>
+                <a href="../../auth/register.html" class="btn btn-primary nav-cta">Start Your Ascent</a>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Stage Hero -->
+    <section class="stage-hero" style="background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);">
+        <div class="container">
+            <div class="stage-hero-content">
+                <div class="stage-breadcrumb">
+                    <a href="../../../index.html">Home</a>
+                    <span>→</span>
+                    <a href="../../../index.html#stages">Journey Stages</a>
+                    <span>→</span>
+                    <span>The Pathfinder</span>
+                </div>
+                
+                <div class="stage-header">
+                    <div class="stage-icon-large">🧭</div>
+                    <h1 class="stage-title-large">The Pathfinder</h1>
+                    <p class="stage-subtitle-large">Grade 9: Navigation Phase</p>
+                    <p class="stage-description-large">
+                        Chart your course through high school with strategic planning and intentional exploration. 
+                        This crucial year sets the foundation for your academic and extracurricular profile.
+                    </p>
+                </div>
+                
+                <div class="stage-actions">
+                    <a href="../../auth/register.html" class="btn btn-primary btn-large">Get Started</a>
+                    <a href="#features" class="btn btn-secondary btn-large">Explore Features</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage Overview -->
+    <section class="stage-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>What You'll Accomplish</h2>
+                    <p>The Pathfinder stage is designed for 9th graders who are ready to begin strategic high school planning. You'll build your academic foundation while exploring meaningful opportunities that align with your interests and goals.</p>
+                    
+                    <div class="stage-goals">
+                        <div class="goal-item">
+                            <div class="goal-icon">📚</div>
+                            <div class="goal-content">
+                                <h3>Build Academic Foundation</h3>
+                                <p>Develop strong study habits, choose courses strategically, and establish your academic reputation with teachers.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="goal-item">
+                            <div class="goal-icon">🌟</div>
+                            <div class="goal-content">
+                                <h3>Explore Leadership Opportunities</h3>
+                                <p>Identify clubs, sports, and activities that match your interests while developing leadership potential.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="goal-item">
+                            <div class="goal-icon">🎯</div>
+                            <div class="goal-content">
+                                <h3>Develop Long-term Strategy</h3>
+                                <p>Create a four-year high school plan that aligns with your college and career aspirations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="overview-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Core Tools</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">9-12</div>
+                        <div class="stat-label">Months Duration</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">High</div>
+                        <div class="stat-label">Impact Level</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage Features -->
+    <section class="stage-features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pathfinder Toolkit</h2>
+                <p class="section-subtitle">Strategic tools to help you navigate 9th grade with purpose and direction.</p>
+            </div>
+            
+            <div class="features-detailed">
+                <!-- Academic Planner -->
+                <div class="feature-detailed">
+                    <div class="feature-content">
+                        <div class="feature-badge subscriber">Subscriber</div>
+                        <h3 class="feature-title">The Academic Planner</h3>
+                        <p class="feature-subtitle">Four-Year Course Strategy Tool</p>
+                        <p class="feature-description">
+                            Plan your entire high school academic journey with strategic course selection that aligns with your college goals. 
+                            Map out prerequisites, identify advanced opportunities, and ensure you're on track for your target universities.
+                        </p>
+                        
+                        <div class="feature-benefits">
+                            <h4>Planning Features:</h4>
+                            <ul>
+                                <li>Interactive four-year course planner</li>
+                                <li>College admission requirement tracking</li>
+                                <li>Advanced course pathway recommendations</li>
+                                <li>GPA tracking and projection tools</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-action">
+                            <a href="../../tools/academic-planner.html" class="btn btn-primary">Start Planning</a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-visual">
+                        <div class="feature-preview">
+                            <div class="preview-header">
+                                <div class="preview-title">📚 Academic Planner</div>
+                            </div>
+                            <div class="preview-content">
+                                <div class="academic-preview">
+                                    <h5>Your 4-Year Plan</h5>
+                                    <div class="year-grid">
+                                        <div class="year-column">
+                                            <h6>Grade 9</h6>
+                                            <div class="course-item">Honors English</div>
+                                            <div class="course-item">Algebra II</div>
+                                            <div class="course-item">Biology</div>
+                                        </div>
+                                        <div class="year-column">
+                                            <h6>Grade 10</h6>
+                                            <div class="course-item">AP World History</div>
+                                            <div class="course-item">Pre-Calculus</div>
+                                            <div class="course-item">Chemistry</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity Explorer -->
+                <div class="feature-detailed reverse">
+                    <div class="feature-content">
+                        <div class="feature-badge subscriber">Subscriber</div>
+                        <h3 class="feature-title">The Activity Explorer</h3>
+                        <p class="feature-subtitle">Extracurricular Opportunity Finder</p>
+                        <p class="feature-description">
+                            Discover and track extracurricular activities that align with your interests and career goals. 
+                            Find leadership opportunities, volunteer positions, and competitions that will strengthen your college applications.
+                        </p>
+                        
+                        <div class="feature-benefits">
+                            <h4>Discovery Tools:</h4>
+                            <ul>
+                                <li>Personalized activity recommendations</li>
+                                <li>Leadership opportunity tracker</li>
+                                <li>Community service project finder</li>
+                                <li>Competition and award database</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-action">
+                            <a href="../../tools/activity-explorer.html" class="btn btn-primary">Explore Activities</a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-visual">
+                        <div class="feature-preview">
+                            <div class="preview-header">
+                                <div class="preview-title">🌟 Activity Explorer</div>
+                            </div>
+                            <div class="preview-content">
+                                <div class="activity-preview">
+                                    <div class="activity-category">
+                                        <h6>🎭 Arts & Performance</h6>
+                                        <div class="activity-item">Drama Club (Leadership Track)</div>
+                                        <div class="activity-item">School Newspaper</div>
+                                    </div>
+                                    <div class="activity-category">
+                                        <h6>🔬 STEM</h6>
+                                        <div class="activity-item">Science Olympiad</div>
+                                        <div class="activity-item">Robotics Team</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goal Tracker -->
+                <div class="feature-detailed">
+                    <div class="feature-content">
+                        <div class="feature-badge subscriber">Subscriber</div>
+                        <h3 class="feature-title">The Goal Tracker</h3>
+                        <p class="feature-subtitle">Progress Monitoring System</p>
+                        <p class="feature-description">
+                            Set and track academic, extracurricular, and personal development goals throughout your freshman year. 
+                            Monitor your progress and adjust your strategy as you grow and discover new interests.
+                        </p>
+                        
+                        <div class="feature-benefits">
+                            <h4>Tracking Features:</h4>
+                            <ul>
+                                <li>SMART goal setting framework</li>
+                                <li>Weekly progress check-ins</li>
+                                <li>Achievement milestone celebrations</li>
+                                <li>Strategy adjustment recommendations</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-action">
+                            <a href="../../tools/goal-tracker.html" class="btn btn-primary">Set Goals</a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-visual">
+                        <div class="feature-preview">
+                            <div class="preview-header">
+                                <div class="preview-title">🎯 Goal Tracker</div>
+                            </div>
+                            <div class="preview-content">
+                                <div class="goal-preview">
+                                    <div class="goal-item-preview">
+                                        <h6>Academic Goal</h6>
+                                        <div class="goal-text">Maintain 3.8+ GPA</div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 85%"></div>
+                                        </div>
+                                        <span class="progress-label">85% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pathfinder Consultation -->
+                <div class="feature-detailed reverse">
+                    <div class="feature-content">
+                        <div class="feature-badge alacarte">À la carte</div>
+                        <h3 class="feature-title">The Pathfinder Consultation</h3>
+                        <p class="feature-subtitle">Strategic Planning Session</p>
+                        <p class="feature-description">
+                            A comprehensive 90-minute consultation with an expert advisor to review your 9th grade progress 
+                            and refine your strategy for the remaining high school years. Get personalized guidance on course selection, 
+                            extracurriculars, and long-term planning.
+                        </p>
+                        
+                        <div class="feature-benefits">
+                            <h4>Consultation Includes:</h4>
+                            <ul>
+                                <li>Comprehensive progress review</li>
+                                <li>Refined four-year strategy</li>
+                                <li>Personalized college target list</li>
+                                <li>Summer planning recommendations</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-pricing">
+                            <div class="price">$249</div>
+                            <div class="price-note">90-minute consultation</div>
+                        </div>
+                        
+                        <div class="feature-action">
+                            <a href="../../tools/pathfinder-consultation.html" class="btn btn-accent">Schedule Session</a>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-visual">
+                        <div class="feature-preview">
+                            <div class="preview-header">
+                                <div class="preview-title">🧭 Pathfinder Consultation</div>
+                            </div>
+                            <div class="preview-content">
+                                <div class="consultation-preview">
+                                    <div class="consultant-info">
+                                        <div class="consultant-avatar">Dr. R</div>
+                                        <div class="consultant-details">
+                                            <h5>Dr. Robert Kim</h5>
+                                            <p>Former MIT Admissions Director</p>
+                                            <div class="rating">★★★★★ 4.9 (89 reviews)</div>
+                                        </div>
+                                    </div>
+                                    <div class="consultation-agenda">
+                                        <h6>Session Agenda:</h6>
+                                        <ul>
+                                            <li>Progress Assessment (20 min)</li>
+                                            <li>Strategy Refinement (45 min)</li>
+                                            <li>Planning Next Steps (25 min)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pathfinder Success Stories</h2>
+                <p class="section-subtitle">See how students navigated 9th grade strategically with Pathfinder.</p>
+            </div>
+            
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-content">
+                        <p class="story-text">
+                            "The Academic Planner helped me see the big picture. I mapped out all four years and realized I needed 
+                            to start taking more challenging courses earlier. Now I'm on track for the classes I need for engineering!"
+                        </p>
+                    </div>
+                    <div class="story-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Alex C.</h4>
+                            <p>9th Grade → Now at Caltech Engineering</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-content">
+                        <p class="story-text">
+                            "I was overwhelmed by all the activity options. The Activity Explorer showed me which ones actually 
+                            matched my interests and career goals. I focused on robotics and now I'm team captain!"
+                        </p>
+                    </div>
+                    <div class="story-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sophia L.</h4>
+                            <p>9th Grade → Now at Carnegie Mellon CS</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-content">
+                        <p class="story-text">
+                            "The Pathfinder Consultation changed everything. Our advisor helped us understand the college landscape 
+                            and create a realistic but ambitious plan. My daughter is now confident about her path."
+                        </p>
+                    </div>
+                    <div class="story-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Maria G.</h4>
+                            <p>Parent of Elena (Now at Northwestern)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="next-steps">
+        <div class="container">
+            <div class="next-steps-content">
+                <h2>Ready to Navigate Your Path?</h2>
+                <p>Take control of your 9th grade experience and set yourself up for high school success.</p>
+                
+                <div class="next-steps-options">
+                    <div class="option-card featured">
+                        <h3>Subscribe & Plan</h3>
+                        <p>Access all Pathfinder tools and start building your strategic high school plan.</p>
+                        <div class="option-price">$39/month</div>
+                        <a href="../../auth/register.html?plan=subscriber" class="btn btn-primary btn-full">Start Planning</a>
+                    </div>
+                    
+                    <div class="option-card">
+                        <h3>Expert Guidance</h3>
+                        <p>Get personalized strategy with a Pathfinder Consultation for comprehensive planning.</p>
+                        <div class="option-price">$249</div>
+                        <a href="../../tools/pathfinder-consultation.html" class="btn btn-outline btn-full">Book Consultation</a>
+                    </div>
+                </div>
+                
+                <div class="next-steps-nav" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                    <a href="../basecamp/index.html" class="stage-nav-link">
+                        <span class="nav-direction">Previous Stage</span>
+                        <span class="nav-stage">← The Basecamp</span>
+                    </a>
+                    <a href="../blueprint/index.html" class="stage-nav-link">
+                        <span class="nav-direction">Next Stage</span>
+                        <span class="nav-stage">The Blueprint →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <span class="brand-icon">⛰️</span>
+                        <span class="brand-text">The Ascent Platform</span>
+                    </div>
+                    <p class="footer-description">Your trusted digital guide for navigating the path to elite higher education.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Journey Stages</h4>
+                    <ul class="footer-links">
+                        <li><a href="../basecamp/index.html">The Basecamp</a></li>
+                        <li><a href="index.html">The Pathfinder</a></li>
+                        <li><a href="../blueprint/index.html">The Blueprint</a></li>
+                        <li><a href="../launchpad/index.html">The Launchpad</a></li>
+                        <li><a href="../summit/index.html">The Summit</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../content/about.html">About Us</a></li>
+                        <li><a href="../../content/blog.html">Success Stories</a></li>
+                        <li><a href="../../content/support.html">Support</a></li>
+                        <li><a href="../../content/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../content/privacy.html">Privacy Policy</a></li>
+                        <li><a href="../../content/terms.html">Terms of Service</a></li>
+                        <li><a href="../../content/cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Ascent Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core JavaScript -->
+    <script src="../../../assets/js/core/app.js"></script>
+    <script src="../../../assets/js/components/navigation.js"></script>
+    
+    <!-- Add CSS for new preview elements -->
+    <style>
+        .academic-preview .year-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .year-column h6 {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 0.25rem;
+        }
+        
+        .course-item {
+            background: var(--color-grey-100);
+            padding: 0.5rem;
+            margin-bottom: 0.25rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        
+        .activity-preview .activity-category {
+            margin-bottom: 1rem;
+        }
+        
+        .activity-category h6 {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .activity-item {
+            background: var(--color-grey-100);
+            padding: 0.5rem;
+            margin-bottom: 0.25rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        
+        .goal-preview .goal-item-preview {
+            background: var(--color-grey-50);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .goal-item-preview h6 {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .goal-text {
+            margin-bottom: 0.5rem;
+            color: var(--color-grey-700);
+        }
+        
+        .progress-label {
+            font-size: 0.75rem;
+            color: var(--color-grey-600);
+            margin-top: 0.25rem;
+        }
+    </style>
+</body>
+</html>

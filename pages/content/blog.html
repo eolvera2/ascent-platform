@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - The Ascent Platform</title>
+    <meta name="description" content="Expert insights, tips, and guidance for college admissions success. Read the latest articles from our team of education consultants.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../../assets/css/core/variables.css">
+    <link rel="stylesheet" href="../../assets/css/core/base.css">
+    <link rel="stylesheet" href="../../assets/css/core/layout.css">
+    <link rel="stylesheet" href="../../assets/css/components/navigation.css">
+    
+    <style>
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .blog-hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: var(--color-white);
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            background-size: 50px 50px;
+            animation: float 10s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: var(--font-family-heading);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .blog-filters {
+            background: var(--color-white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+        }
+
+        .filters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filters-title {
+            font-family: var(--font-family-heading);
+            font-size: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .search-bar {
+            background: var(--color-grey-50);
+            border: 1px solid var(--color-grey-200);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 300px;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            background: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-icon {
+            color: var(--color-grey-500);
+        }
+
+        .filter-categories {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-category {
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            border: 2px solid var(--color-grey-200);
+            background: var(--color-white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-category.active {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .filter-category:hover:not(.active) {
+            border-color: var(--color-accent);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .featured-post {
+            background: var(--color-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            margin-bottom: 4rem;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-post:hover {
+            transform: translateY(-5px);
+        }
+
+        .featured-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 4rem;
+        }
+
+        .featured-content {
+            padding: 2.5rem;
+        }
+
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-grey-600);
+            font-size: 0.9rem;
+        }
+
+        .featured-category {
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .featured-title {
+            font-family: var(--font-family-heading);
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .featured-excerpt {
+            color: var(--color-grey-700);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--color-primary);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .blog-card {
+            background: var(--color-white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 2.5rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-grey-600);
+            font-size: 0.85rem;
+        }
+
+        .card-category {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--color-accent);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card-title {
+            font-family: var(--font-family-heading);
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            color: var(--color-grey-700);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--color-grey-200);
+        }
+
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .author-details {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--color-primary);
+            font-size: 0.9rem;
+        }
+
+        .author-title {
+            color: var(--color-grey-600);
+            font-size: 0.8rem;
+        }
+
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: var(--color-white);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .newsletter-title {
+            font-family: var(--font-family-heading);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-description {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 12px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .newsletter-btn {
+            background: var(--color-white);
+            color: var(--color-primary);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .pagination-btn {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--color-grey-300);
+            background: var(--color-white);
+            color: var(--color-grey-700);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .pagination-btn:hover {
+            background: var(--color-accent);
+            color: var(--color-white);
+            border-color: var(--color-accent);
+        }
+
+        .pagination-btn.active {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filters-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-bar {
+                min-width: auto;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="../../index.html" class="brand-link">
+                    <span class="brand-icon">⛰️</span>
+                    <span class="brand-text">The Ascent Platform</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="blog-container">
+        <header class="blog-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Expert Insights & Guidance</h1>
+                <p class="hero-subtitle">
+                    Stay informed with the latest strategies, tips, and insights for college admissions success from our team of expert advisors.
+                </p>
+            </div>
+        </header>
+
+        <section class="blog-filters">
+            <div class="filters-header">
+                <h2 class="filters-title">Explore Articles</h2>
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" placeholder="Search articles..." id="searchInput">
+                </div>
+            </div>
+            
+            <div class="filter-categories">
+                <button class="filter-category active" onclick="filterPosts('all')">All Posts</button>
+                <button class="filter-category" onclick="filterPosts('admissions')">Admissions</button>
+                <button class="filter-category" onclick="filterPosts('essays')">Essays</button>
+                <button class="filter-category" onclick="filterPosts('testing')">Test Prep</button>
+                <button class="filter-category" onclick="filterPosts('scholarships')">Scholarships</button>
+                <button class="filter-category" onclick="filterPosts('planning')">Planning</button>
+            </div>
+        </section>
+
+        <article class="featured-post" data-category="admissions">
+            <div class="featured-image">📚</div>
+            <div class="featured-content">
+                <div class="featured-meta">
+                    <span class="featured-category">Admissions Strategy</span>
+                    <span>December 15, 2024</span>
+                    <span>8 min read</span>
+                </div>
+                <h2 class="featured-title">
+                    The Ultimate Guide to Early Decision vs. Early Action: Making the Right Choice
+                </h2>
+                <p class="featured-excerpt">
+                    Understanding the difference between Early Decision and Early Action can significantly impact your college admissions strategy. This comprehensive guide breaks down the pros and cons of each approach, helping you make an informed decision that aligns with your goals and maximizes your chances of admission to your dream school.
+                </p>
+                <a href="#" class="read-more" onclick="openPost('featured-ed-ea')">
+                    Read Full Article →
+                </a>
+            </div>
+        </article>
+
+        <section class="blog-grid" id="blogGrid">
+            <article class="blog-card" data-category="essays">
+                <div class="card-image">✍️</div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-category">Essay Writing</span>
+                        <span>December 12, 2024</span>
+                    </div>
+                    <h3 class="card-title">
+                        5 Common College Essay Mistakes That Can Hurt Your Application
+                    </h3>
+                    <p class="card-excerpt">
+                        Learn about the most frequent mistakes students make in their college essays and how to avoid them. From generic topics to poor structure, we cover what admissions officers really notice.
+                    </p>
+                    <div class="author-info">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-details">
+                            <div class="author-name">Sarah Martinez</div>
+                            <div class="author-title">Essay Coach</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="testing">
+                <div class="card-image">📊</div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-category">Test Prep</span>
+                        <span>December 10, 2024</span>
+                    </div>
+                    <h3 class="card-title">
+                        SAT vs. ACT: Which Test Should You Take in 2024?
+                    </h3>
+                    <p class="card-excerpt">
+                        A detailed comparison of the SAT and ACT, including format differences, scoring systems, and strategies to help you choose the test that best showcases your strengths.
+                    </p>
+                    <div class="author-info">
+                        <div class="author-avatar">DL</div>
+                        <div class="author-details">
+                            <div class="author-name">Dr. Lisa Chen</div>
+                            <div class="author-title">Test Prep Director</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="scholarships">
+                <div class="card-image">💰</div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-category">Financial Aid</span>
+                        <span>December 8, 2024</span>
+                    </div>
+                    <h3 class="card-title">
+                        Hidden Scholarship Opportunities Most Students Miss
+                    </h3>
+                    <p class="card-excerpt">
+                        Discover lesser-known scholarship opportunities that can significantly reduce your college costs. We reveal sources and strategies most students overlook.
+                    </p>
+                    <div class="author-info">
+                        <div class="author-avatar">MJ</div>
+                        <div class="author-details">
+                            <div class="author-name">Michael Johnson</div>
+                            <div class="author-title">Financial Aid Advisor</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="planning">
+                <div class="card-image">📅</div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-category">College Planning</span>
+                        <span>December 5, 2024</span>
+                    </div>
+                    <h3 class="card-title">
+                        Junior Year Timeline: Your Complete Month-by-Month Guide
+                    </h3>
+                    <p class="card-excerpt">
+                        Stay on track with our comprehensive junior year timeline. From standardized testing to summer planning, ensure you don't miss any critical deadlines.
+                    </p>
+                    <div class="author-info">
+                        <div class="author-avatar">ER</div>
+                        <div class="author-details">
+                            <div class="author-name">Emily Rodriguez</div>
+                            <div class="author-title">College Counselor</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="admissions">
+                <div class="card-image">🎯</div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-category">Strategy</span>
+                        <span>December 3, 2024</span>
+                    </div>
+                    <h3 class="card-title">
+                        How to Build a Balanced College List That Maximizes Your Options
+                    </h3>
+                    <p class="card-excerpt">
+                        Learn the art of creating a strategic college list with the right mix of reach, target, and safety schools that align with your goals and interests.
+                    </p>
+                    <div class="author-info">
+                        <div class="author-avatar">JW</div>
+                        <div class="author-details">
+                            <div class="author-name">James Wilson</div>
+                            <div class="author-title">Senior Advisor</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card" data-category="essays">
+                <div class="card-image">💡</div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-category">Personal Statement</span>
+                        <span>November 30, 2024</span>
+                    </div>
+                    <h3 class="card-title">
+                        Finding Your Unique Voice: Authentic Essay Topics That Stand Out
+                    </h3>
+                    <p class="card-excerpt">
+                        Move beyond clichéd essay topics and discover how to identify genuinely unique stories that showcase your personality and potential to admissions committees.
+                    </p>
+                    <div class="author-info">
+                        <div class="author-avatar">AT</div>
+                        <div class="author-details">
+                            <div class="author-name">Anna Thompson</div>
+                            <div class="author-title">Writing Specialist</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="newsletter-section">
+            <h2 class="newsletter-title">Stay Ahead with Expert Insights</h2>
+            <p class="newsletter-description">
+                Get the latest college admissions strategies, tips, and updates delivered directly to your inbox. Join thousands of students and families who trust our guidance.
+            </p>
+            <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </section>
+
+        <nav class="pagination">
+            <a href="#" class="pagination-btn">← Previous</a>
+            <a href="#" class="pagination-btn active">1</a>
+            <a href="#" class="pagination-btn">2</a>
+            <a href="#" class="pagination-btn">3</a>
+            <a href="#" class="pagination-btn">Next →</a>
+        </nav>
+    </main>
+
+    <script>
+        // Filter functionality
+        function filterPosts(category) {
+            // Update active filter button
+            document.querySelectorAll('.filter-category').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Filter blog posts
+            const posts = document.querySelectorAll('.blog-card, .featured-post');
+            posts.forEach(post => {
+                if (category === 'all' || post.dataset.category === category) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+
+        // Search functionality
+        function searchPosts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const posts = document.querySelectorAll('.blog-card, .featured-post');
+            
+            posts.forEach(post => {
+                const title = post.querySelector('.card-title, .featured-title').textContent.toLowerCase();
+                const excerpt = post.querySelector('.card-excerpt, .featured-excerpt').textContent.toLowerCase();
+                
+                if (title.includes(query) || excerpt.includes(query)) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+
+        // Newsletter subscription
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('.newsletter-input').value;
+            alert(`Thank you for subscribing!\n\nWe've added ${email} to our newsletter list. You'll receive our latest insights and tips directly in your inbox.`);
+            event.target.reset();
+        }
+
+        // Open blog post (placeholder)
+        function openPost(postId) {
+            alert(`Opening blog post: ${postId}\n\nIn a real implementation, this would navigate to the full article page with detailed content, comments, and related articles.`);
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up search functionality
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', searchPosts);
+
+            // Initialize with all posts visible
+            filterPosts('all');
+        });
+    </script>
+</body>
+</html>

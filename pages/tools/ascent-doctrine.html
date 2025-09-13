@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ascent Doctrine - The Ascent Platform</title>
+    <meta name="description" content="Discover the core principles and strategies that guide successful journeys to elite higher education.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../../assets/css/core/variables.css">
+    <link rel="stylesheet" href="../../assets/css/core/base.css">
+    <link rel="stylesheet" href="../../assets/css/core/layout.css">
+    <link rel="stylesheet" href="../../assets/css/components/navigation.css">
+    
+    <style>
+        .doctrine-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .doctrine-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-grey-800) 100%);
+            color: var(--color-white);
+            border-radius: 25px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .doctrine-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-50px) translateY(-50px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+
+        .doctrine-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .doctrine-title {
+            font-family: var(--font-family-heading);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .doctrine-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .doctrine-content {
+            background: var(--color-white);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .doctrine-nav {
+            background: var(--color-grey-50);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--color-grey-200);
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            border: none;
+            background: transparent;
+            color: var(--color-grey-600);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-tab.active {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .nav-tab:hover:not(.active) {
+            background: var(--color-grey-200);
+        }
+
+        .doctrine-section {
+            display: none;
+            padding: 3rem 2rem;
+        }
+
+        .doctrine-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-family-heading);
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--color-grey-600);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .principle-card {
+            background: var(--color-grey-50);
+            border-radius: 15px;
+            padding: 2rem;
+            border-left: 4px solid var(--color-accent);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .principle-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+
+        .principle-title {
+            font-family: var(--font-family-heading);
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .principle-description {
+            color: var(--color-grey-700);
+            line-height: 1.6;
+        }
+
+        .strategies-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+
+        .strategy-item {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--color-primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .strategy-title {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .strategy-description {
+            color: var(--color-grey-700);
+            line-height: 1.5;
+        }
+
+        .mindset-quote {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .quote-text {
+            font-family: var(--font-family-heading);
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .quote-author {
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .quote-marks {
+            font-size: 4rem;
+            position: absolute;
+            opacity: 0.2;
+        }
+
+        .quote-marks.open {
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .quote-marks.close {
+            bottom: 1rem;
+            right: 1rem;
+            transform: rotate(180deg);
+        }
+
+        .action-section {
+            background: var(--color-grey-50);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .action-title {
+            font-family: var(--font-family-heading);
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: var(--color-white);
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        @media (max-width: 768px) {
+            .doctrine-title {
+                font-size: 2.2rem;
+            }
+            
+            .doctrine-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .doctrine-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-tabs {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="../../index.html" class="brand-link">
+                    <span class="brand-icon">⛰️</span>
+                    <span class="brand-text">The Ascent Platform</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="../stages/basecamp/index.html" class="nav-link">Back to Basecamp</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="doctrine-container">
+        <header class="doctrine-hero">
+            <div class="doctrine-icon">📜</div>
+            <h1 class="doctrine-title">The Ascent Doctrine</h1>
+            <p class="doctrine-subtitle">Core principles and proven strategies that guide every successful journey to elite higher education</p>
+        </header>
+
+        <div class="doctrine-content">
+            <nav class="doctrine-nav">
+                <div class="nav-tabs">
+                    <button class="nav-tab active" onclick="showSection('principles')">Core Principles</button>
+                    <button class="nav-tab" onclick="showSection('strategies')">Success Strategies</button>
+                    <button class="nav-tab" onclick="showSection('mindset')">Growth Mindset</button>
+                    <button class="nav-tab" onclick="showSection('execution')">Execution Framework</button>
+                </div>
+            </nav>
+
+            <!-- Core Principles Section -->
+            <section class="doctrine-section active" id="principles">
+                <div class="section-header">
+                    <div class="section-icon">🎯</div>
+                    <h2 class="section-title">The Five Core Principles</h2>
+                    <p class="section-description">These fundamental principles form the foundation of every successful college admissions journey</p>
+                </div>
+
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <div class="principle-number">01</div>
+                        <h3 class="principle-title">Excellence Through Depth</h3>
+                        <p class="principle-description">
+                            True excellence comes from developing deep expertise and mastery in your chosen areas, not from superficial involvement in many activities.
+                        </p>
+                    </div>
+
+                    <div class="principle-card">
+                        <div class="principle-number">02</div>
+                        <h3 class="principle-title">Authentic Leadership</h3>
+                        <p class="principle-description">
+                            Leadership isn't about titles—it's about creating meaningful impact and inspiring others through genuine passion and commitment.
+                        </p>
+                    </div>
+
+                    <div class="principle-card">
+                        <div class="principle-number">03</div>
+                        <h3 class="principle-title">Strategic Positioning</h3>
+                        <p class="principle-description">
+                            Every decision should align with your unique narrative and contribute to a compelling, cohesive story of who you are and where you're going.
+                        </p>
+                    </div>
+
+                    <div class="principle-card">
+                        <div class="principle-number">04</div>
+                        <h3 class="principle-title">Continuous Growth</h3>
+                        <p class="principle-description">
+                            Embrace challenges as opportunities to grow, learn from setbacks, and constantly push beyond your comfort zone.
+                        </p>
+                    </div>
+
+                    <div class="principle-card">
+                        <div class="principle-number">05</div>
+                        <h3 class="principle-title">Value Creation</h3>
+                        <p class="principle-description">
+                            Focus on creating genuine value for others—your community, your field of interest, and the institutions you hope to join.
+                        </p>
+                    </div>
+
+                    <div class="principle-card">
+                        <div class="principle-number">06</div>
+                        <h3 class="principle-title">Long-term Vision</h3>
+                        <p class="principle-description">
+                            Think beyond college admissions to your ultimate impact on the world—let that vision guide your present actions.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Success Strategies Section -->
+            <section class="doctrine-section" id="strategies">
+                <div class="section-header">
+                    <div class="section-icon">🚀</div>
+                    <h2 class="section-title">Proven Success Strategies</h2>
+                    <p class="section-description">Time-tested approaches that consistently lead to admission at elite institutions</p>
+                </div>
+
+                <ul class="strategies-list">
+                    <li class="strategy-item">
+                        <div class="strategy-title">The Virtue Strategy</div>
+                        <div class="strategy-description">
+                            Develop one or two areas of exceptional strength rather than being well-rounded. Elite colleges want specialists who can contribute unique value.
+                        </div>
+                    </li>
+
+                    <li class="strategy-item">
+                        <div class="strategy-title">Narrative Architecture</div>
+                        <div class="strategy-description">
+                            Build a cohesive story that connects your academics, extracurriculars, and personal experiences into a compelling narrative about your potential.
+                        </div>
+                    </li>
+
+                    <li class="strategy-item">
+                        <div class="strategy-title">Research and Innovation</div>
+                        <div class="strategy-description">
+                            Engage in meaningful research or create innovative projects that demonstrate intellectual curiosity and the ability to contribute new knowledge.
+                        </div>
+                    </li>
+
+                    <li class="strategy-item">
+                        <div class="strategy-title">Community Impact</div>
+                        <div class="strategy-description">
+                            Create measurable, positive change in your community that aligns with your interests and demonstrates leadership potential.
+                        </div>
+                    </li>
+
+                    <li class="strategy-item">
+                        <div class="strategy-title">Academic Rigor</div>
+                        <div class="strategy-description">
+                            Take the most challenging courses available while maintaining excellence, showing you can handle elite-level academic demands.
+                        </div>
+                    </li>
+
+                    <li class="strategy-item">
+                        <div class="strategy-title">Relationship Building</div>
+                        <div class="strategy-description">
+                            Cultivate genuine relationships with mentors, teachers, and peers who can provide guidance and powerful recommendations.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Growth Mindset Section -->
+            <section class="doctrine-section" id="mindset">
+                <div class="section-header">
+                    <div class="section-icon">🧠</div>
+                    <h2 class="section-title">The Ascent Mindset</h2>
+                    <p class="section-description">Cultivate the mental framework that transforms challenges into opportunities</p>
+                </div>
+
+                <div class="mindset-quote">
+                    <div class="quote-marks open">"</div>
+                    <div class="quote-text">
+                        The mountain doesn't care about your fear, your doubt, or your past failures. It only responds to your persistent effort, strategic preparation, and unwavering commitment to reach the summit.
+                    </div>
+                    <div class="quote-author">— The Ascent Philosophy</div>
+                    <div class="quote-marks close">"</div>
+                </div>
+
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <h3 class="principle-title">Embrace the Process</h3>
+                        <p class="principle-description">
+                            Focus on daily growth and improvement rather than obsessing over outcomes. Excellence is a habit, not an event.
+                        </p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3 class="principle-title">Learn from Rejection</h3>
+                        <p class="principle-description">
+                            Every "no" is data that helps you improve. Use setbacks as stepping stones to build resilience and refine your approach.
+                        </p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3 class="principle-title">Think Like an Owner</h3>
+                        <p class="principle-description">
+                            Take complete ownership of your journey. You are the CEO of your college admissions campaign and your future success.
+                        </p>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3 class="principle-title">Compound Growth</h3>
+                        <p class="principle-description">
+                            Small, consistent improvements compound over time. Every day of effort builds toward extraordinary results.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Execution Framework Section -->
+            <section class="doctrine-section" id="execution">
+                <div class="section-header">
+                    <div class="section-icon">⚡</div>
+                    <h2 class="section-title">The Execution Framework</h2>
+                    <p class="section-description">Transform strategy into results with systematic execution</p>
+                </div>
+
+                <ul class="strategies-list">
+                    <li class="strategy-item">
+                        <div class="strategy-title">90-Day Sprints</div>
+                        <div class="strategy-description">
+                            Break your journey into focused 90-day periods with specific, measurable goals. This creates momentum and ensures consistent progress.
+                        </div>
+                    </li>
+
+                    <li class="strategy-item">
+                        <div class="strategy-title">Weekly Reviews</div>
+                        <div class="strategy-description">
+                            Conduct weekly assessments of your progress, challenges, and opportunities. Adjust your strategy based on real results.
+                        </div>
+                    </li>
+
+                    <li class="strategy-item">
+                        <div class="strategy-title">Priority Matrix</div>
+                        <div class="strategy-description">
+                            Use the Eisenhower Matrix to focus on activities that are both important and urgent for your college goals.
+                        </div>
+                    </li>
+
+                    <li class="strategy-item">
+                        <div class="strategy-title">Accountability Systems</div>
+                        <div class="strategy-description">
+                            Create systems to track your commitments and progress. Share your goals with mentors who will hold you accountable.
+                        </div>
+                    </li>
+
+                    <li class="strategy-item">
+                        <div class="strategy-title">Iterative Improvement</div>
+                        <div class="strategy-description">
+                            Constantly refine your approach based on feedback and results. Perfection comes through iteration, not initial planning.
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="action-section">
+                    <h3 class="action-title">Ready to Apply The Doctrine?</h3>
+                    <p>Start implementing these principles in your journey today</p>
+                    <div class="action-buttons">
+                        <a href="../stages/pathfinder/index.html" class="btn btn-primary">Begin Your Journey</a>
+                        <a href="compass-quiz.html" class="btn btn-secondary">Take Assessment</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.doctrine-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Activate corresponding tab
+            event.target.classList.add('active');
+        }
+
+        // Add smooth scrolling for internal navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0.1s';
+                        entry.target.style.animationFillMode = 'both';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe cards for staggered animations
+            document.querySelectorAll('.principle-card, .strategy-item').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

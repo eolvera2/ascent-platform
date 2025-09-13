@@ -1,0 +1,394 @@
+/* ==========================================================================
+   Hero Component - Landing Page Hero Section with Mountain Visualization
+   ========================================================================== */
+
+.hero {
+  min-height: var(--hero-min-height);
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--color-grey-50) 0%, var(--color-white) 100%);
+  position: relative;
+  overflow: hidden;
+  margin-top: var(--nav-height);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(10, 25, 47, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: var(--space-5xl) var(--space-lg);
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero Content */
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-primary);
+  margin-bottom: var(--space-xl);
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-grey-600);
+  margin-bottom: var(--space-2xl);
+  font-weight: var(--font-weight-regular);
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+.hero-social-proof {
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-grey-200);
+}
+
+.social-proof-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-grey-500);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Hero Visual - Mountain Progress */
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.mountain-progress {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  position: relative;
+}
+
+.mountain-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(10, 25, 47, 0.1));
+}
+
+/* Mountain Peak Styling */
+.mountain-peak {
+  fill: var(--color-primary);
+  opacity: 0.9;
+}
+
+/* Journey Path Animation */
+.journey-path {
+  stroke: var(--color-accent);
+  stroke-width: 3;
+  fill: none;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawPath 3s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Stage Markers */
+.stage-marker {
+  fill: var(--color-grey-400);
+  stroke: var(--color-white);
+  stroke-width: 2;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  opacity: 0;
+  animation: fadeInMarker 0.5s ease-out forwards;
+}
+
+.stage-marker:nth-child(3) { animation-delay: 0.8s; }
+.stage-marker:nth-child(4) { animation-delay: 1.0s; }
+.stage-marker:nth-child(5) { animation-delay: 1.2s; }
+.stage-marker:nth-child(6) { animation-delay: 1.4s; }
+.stage-marker:nth-child(7) { animation-delay: 1.6s; }
+.stage-marker:nth-child(8) { animation-delay: 1.8s; }
+
+@keyframes fadeInMarker {
+  to {
+    opacity: 1;
+  }
+}
+
+.stage-marker:hover {
+  fill: var(--color-accent);
+  r: 8;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+}
+
+.stage-marker.active {
+  fill: var(--color-accent);
+  r: 8;
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    r: 8;
+    opacity: 1;
+  }
+  50% {
+    r: 10;
+    opacity: 0.8;
+  }
+}
+
+/* Stage Tooltips */
+.stage-marker-tooltip {
+  position: absolute;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all var(--transition-fast);
+  z-index: var(--z-index-tooltip);
+  pointer-events: none;
+}
+
+.stage-marker-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--color-primary);
+}
+
+.stage-marker:hover + .stage-marker-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+    text-align: center;
+  }
+  
+  .hero-visual {
+    order: -1;
+  }
+  
+  .mountain-progress {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+  }
+  
+  .hero-container {
+    padding: var(--space-4xl) var(--space-lg);
+    gap: var(--space-2xl);
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-size-lg);
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .mountain-progress {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-container {
+    padding: var(--space-3xl) var(--space-md);
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Enhanced Visual Effects */
+.hero-content {
+  animation: slideInFromLeft 1s ease-out;
+}
+
+.hero-visual {
+  animation: slideInFromRight 1s ease-out;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Particle Effect Background (Optional Enhancement) */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-accent);
+  border-radius: var(--radius-full);
+  opacity: 0.3;
+  animation: float 6s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100px) translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .hero {
+    background: var(--color-white);
+  }
+  
+  .mountain-peak {
+    opacity: 1;
+  }
+  
+  .journey-path {
+    stroke-width: 4;
+  }
+  
+  .stage-marker {
+    stroke-width: 3;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .journey-path,
+  .stage-marker,
+  .hero-content,
+  .hero-visual,
+  .particle {
+    animation: none;
+  }
+  
+  .stage-marker {
+    opacity: 1;
+  }
+  
+  .stage-marker.active {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .hero {
+    background: white;
+    min-height: auto;
+    page-break-inside: avoid;
+  }
+  
+  .hero-visual {
+    display: none;
+  }
+  
+  .hero-container {
+    grid-template-columns: 1fr;
+  }
+}

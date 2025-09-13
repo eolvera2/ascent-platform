@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - The Ascent Platform</title>
+    <meta name="description" content="Learn about The Ascent Platform's mission to guide exceptional students to elite higher education through expert mentorship and proven strategies.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../../assets/css/core/variables.css">
+    <link rel="stylesheet" href="../../assets/css/core/base.css">
+    <link rel="stylesheet" href="../../assets/css/core/layout.css">
+    <link rel="stylesheet" href="../../assets/css/components/navigation.css">
+    
+    <style>
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .about-hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: var(--color-white);
+            padding: 5rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,80 Q50,20 80,80" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/></svg>') repeat;
+            background-size: 100px 100px;
+            animation: flow 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes flow {
+            0% { transform: translateX(-100px) translateY(-100px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: var(--font-family-heading);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .mission-section {
+            background: var(--color-white);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            padding: 4rem 3rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .section-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-family: var(--font-family-heading);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 2rem;
+        }
+
+        .mission-text {
+            font-size: 1.2rem;
+            color: var(--color-grey-700);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .value-card {
+            background: var(--color-white);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--color-accent);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
+        }
+
+        .value-title {
+            font-family: var(--font-family-heading);
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: var(--color-grey-700);
+            line-height: 1.6;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, var(--color-grey-50) 0%, var(--color-white) 100%);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            margin: 4rem 0;
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-text {
+            color: var(--color-grey-700);
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .story-highlight {
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .story-visual {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            border-radius: 15px;
+            padding: 3rem;
+            color: var(--color-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-visual::before {
+            content: '⛰️';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .visual-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .visual-stat {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .visual-label {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .approach-section {
+            margin: 4rem 0;
+        }
+
+        .approach-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .approach-step {
+            background: var(--color-white);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: relative;
+            border-left: 4px solid var(--color-accent);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-accent);
+            color: var(--color-white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .step-title {
+            font-family: var(--font-family-heading);
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin: 1rem 0;
+        }
+
+        .step-description {
+            color: var(--color-grey-700);
+            line-height: 1.5;
+        }
+
+        .team-section {
+            background: var(--color-white);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            margin: 4rem 0;
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: var(--color-grey-50);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--color-white);
+        }
+
+        .member-name {
+            font-family: var(--font-family-heading);
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .member-bio {
+            color: var(--color-grey-700);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: var(--color-white);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-title {
+            font-family: var(--font-family-heading);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-light {
+            background: var(--color-white);
+            color: var(--color-primary);
+        }
+
+        .btn-light:hover {
+            background: var(--color-grey-100);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
+        }
+
+        .btn-outline:hover {
+            background: var(--color-white);
+            color: var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-hero {
+                padding: 3rem 2rem;
+            }
+            
+            .mission-section, .team-section {
+                padding: 2.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="../../index.html" class="brand-link">
+                    <span class="brand-icon">⛰️</span>
+                    <span class="brand-text">The Ascent Platform</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../stages/basecamp/index.html" class="nav-link">Stages</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="about-container">
+        <header class="about-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Guiding Excellence to Elite Heights</h1>
+                <p class="hero-subtitle">
+                    We are the expert sherpas in your journey to the world's most prestigious universities, providing proven strategies, personalized guidance, and unwavering support every step of the way.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5,000+</span>
+                        <span class="stat-label">Students Guided</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Top 20</span>
+                        <span class="stat-label">Universities</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">$50M+</span>
+                        <span class="stat-label">Scholarships Won</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="mission-section">
+            <div class="section-icon">🎯</div>
+            <h2 class="section-title">Our Mission</h2>
+            <p class="mission-text">
+                To democratize access to elite higher education by providing exceptional students with the strategic guidance, proven methodologies, and personalized support they need to reach the summit of academic achievement. We believe that with the right guidance, every dedicated student can achieve extraordinary results.
+            </p>
+        </section>
+
+        <section class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🏔️</div>
+                <h3 class="value-title">Excellence Without Compromise</h3>
+                <p class="value-description">
+                    We maintain the highest standards in everything we do, from our curriculum design to our mentorship quality. Excellence isn't just our goal—it's our foundation.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3 class="value-title">Personalized Partnership</h3>
+                <p class="value-description">
+                    Every student's journey is unique. We provide individualized strategies and one-on-one support tailored to each student's strengths, goals, and circumstances.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">📊</div>
+                <h3 class="value-title">Data-Driven Results</h3>
+                <p class="value-description">
+                    Our methods are backed by extensive research and proven track records. We continuously analyze outcomes to refine our approach and maximize student success.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">🌱</div>
+                <h3 class="value-title">Holistic Development</h3>
+                <p class="value-description">
+                    We focus on developing the whole person—academic excellence, leadership skills, character development, and the mindset needed for lifelong success.
+                </p>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2 class="section-title">Our Story</h2>
+                    <p>
+                        Founded by a team of <span class="story-highlight">Ivy League graduates</span> and <span class="story-highlight">admissions experts</span>, The Ascent Platform was born from a simple observation: the most successful college applicants aren't necessarily the smartest, but those who understand the strategic elements that make applications truly compelling.
+                    </p>
+                    <p>
+                        After helping hundreds of students navigate the increasingly competitive landscape of elite college admissions, we realized the need for a systematic, comprehensive approach that could be scaled to help more exceptional students achieve their dreams.
+                    </p>
+                    <p>
+                        Today, we're proud to have guided thousands of students to acceptances at the world's most prestigious institutions, with many receiving full scholarships and going on to become leaders in their chosen fields.
+                    </p>
+                </div>
+                <div class="story-visual">
+                    <div class="visual-content">
+                        <div class="visual-stat">2019</div>
+                        <div class="visual-label">Founded with a Vision</div>
+                        <div class="visual-stat">5,000+</div>
+                        <div class="visual-label">Lives Transformed</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="approach-section">
+            <div class="approach-header">
+                <h2 class="section-title">The Ascent Approach</h2>
+                <p class="section-description">Our proven methodology that consistently delivers exceptional results</p>
+            </div>
+            
+            <div class="approach-grid">
+                <div class="approach-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Assessment & Strategy</h3>
+                    <p class="step-description">
+                        Comprehensive evaluation of your current position and development of a personalized roadmap to your target universities.
+                    </p>
+                </div>
+
+                <div class="approach-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Skill Development</h3>
+                    <p class="step-description">
+                        Systematic development of academic, leadership, and personal qualities that elite universities value most.
+                    </p>
+                </div>
+
+                <div class="approach-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Strategic Execution</h3>
+                    <p class="step-description">
+                        Implementation of your personalized plan with ongoing support, accountability, and course corrections.
+                    </p>
+                </div>
+
+                <div class="approach-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Application Excellence</h3>
+                    <p class="step-description">
+                        Crafting compelling applications that showcase your unique value proposition and maximize admission chances.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="team-header">
+                <h2 class="section-title">Meet Your Expert Guides</h2>
+                <p class="section-description">World-class educators and mentors committed to your success</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">👨‍🎓</div>
+                    <h3 class="member-name">Dr. Michael Chen</h3>
+                    <p class="member-role">Founder & Lead Strategist</p>
+                    <p class="member-bio">
+                        Harvard MBA, former admissions officer at Stanford. 15+ years guiding students to elite universities with a 98% success rate.
+                    </p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-avatar">👩‍🏫</div>
+                    <h3 class="member-name">Sarah Williams</h3>
+                    <p class="member-role">Academic Excellence Director</p>
+                    <p class="member-bio">
+                        Yale PhD, former AP examiner. Specializes in advanced curriculum planning and test preparation strategies for top performers.
+                    </p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-avatar">👨‍💼</div>
+                    <h3 class="member-name">James Rodriguez</h3>
+                    <p class="member-role">Leadership Development Coach</p>
+                    <p class="member-bio">
+                        Princeton graduate, former McKinsey consultant. Expert in developing leadership profiles that stand out to admissions committees.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 class="cta-title">Ready to Begin Your Ascent?</h2>
+            <p class="cta-subtitle">
+                Join thousands of successful students who have transformed their dreams into acceptances at the world's most prestigious universities.
+            </p>
+            <div class="cta-buttons">
+                <a href="../auth/register.html" class="btn btn-light">Start Your Journey</a>
+                <a href="contact.html" class="btn btn-outline">Schedule Consultation</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

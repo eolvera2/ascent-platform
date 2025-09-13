@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ascent Platform - Your Guide to Elite Higher Education</title>
+    <meta name="description" content="Transform college admissions stress into a journey of self-discovery. Your trusted digital guide to elite higher education.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="assets/css/core/variables.css">
+    <link rel="stylesheet" href="assets/css/core/base.css">
+    <link rel="stylesheet" href="assets/css/core/layout.css">
+    <link rel="stylesheet" href="assets/css/components/navigation.css">
+    <link rel="stylesheet" href="assets/css/components/hero.css">
+    <link rel="stylesheet" href="assets/css/components/stages.css">
+    <link rel="stylesheet" href="assets/css/pages/home.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="/" class="brand-link">
+                    <span class="brand-icon">🏔️</span>
+                    <span class="brand-text">The Ascent Platform</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#stages" class="nav-link">Your Journey</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="pages/auth/login.html" class="nav-link nav-login">Sign In</a>
+                <a href="pages/auth/register.html" class="btn btn-primary nav-cta">Start Your Ascent</a>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Transform College Admissions Into Your Greatest <span class="text-accent">Achievement</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Stop navigating blindly. Join thousands of ambitious students who've found their path to elite universities with strategic guidance from expert sherpas.
+                </p>
+                <div class="hero-actions">
+                    <a href="pages/auth/register.html" class="btn btn-primary btn-large">Begin Your Journey</a>
+                    <a href="#stages" class="btn btn-secondary btn-large">Explore the Path</a>
+                </div>
+                <div class="hero-social-proof">
+                    <p class="social-proof-text">Trusted by students admitted to Harvard, Stanford, MIT, and 200+ top universities</p>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="mountain-progress" id="mountainProgress">
+                    <svg viewBox="0 0 400 300" class="mountain-svg">
+                        <!-- Mountain peaks -->
+                        <path d="M0,250 L80,150 L160,100 L240,80 L320,60 L400,40 L400,300 L0,300 Z" 
+                              class="mountain-peak" fill="var(--color-primary)"/>
+                        
+                        <!-- Journey path -->
+                        <path d="M20,280 Q100,200 180,160 Q260,120 360,80" 
+                              class="journey-path" stroke="var(--color-accent)" stroke-width="3" fill="none"/>
+                        
+                        <!-- Stage markers -->
+                        <circle cx="20" cy="280" r="6" class="stage-marker active" data-stage="start"/>
+                        <circle cx="100" cy="200" r="6" class="stage-marker" data-stage="basecamp"/>
+                        <circle cx="180" cy="160" r="6" class="stage-marker" data-stage="pathfinder"/>
+                        <circle cx="240" cy="130" r="6" class="stage-marker" data-stage="blueprint"/>
+                        <circle cx="300" cy="100" r="6" class="stage-marker" data-stage="launchpad"/>
+                        <circle cx="360" cy="80" r="6" class="stage-marker" data-stage="summit"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stages Section -->
+    <section class="stages" id="stages">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Your Strategic Journey to Success</h2>
+                <p class="section-subtitle">Each stage builds upon the last, creating a comprehensive roadmap from middle school to college acceptance.</p>
+            </div>
+            
+            <div class="stages-grid">
+                <!-- Basecamp -->
+                <div class="stage-card" data-stage="basecamp">
+                    <div class="stage-icon">🏕️</div>
+                    <h3 class="stage-title">The Basecamp</h3>
+                    <p class="stage-grades">Grades 6-8</p>
+                    <p class="stage-description">Discover your strengths and passions. Build the foundation for your high school journey with strategic exploration.</p>
+                    <ul class="stage-features">
+                        <li>The Ascent Doctrine - Learn the fundamentals</li>
+                        <li>The Compass Quiz - Discover your interests</li>
+                        <li>The Expedition Briefing - Get expert guidance</li>
+                    </ul>
+                    <a href="pages/stages/basecamp/index.html" class="stage-link">Explore Basecamp →</a>
+                </div>
+
+                <!-- Pathfinder -->
+                <div class="stage-card" data-stage="pathfinder">
+                    <div class="stage-icon">🧭</div>
+                    <h3 class="stage-title">The Pathfinder</h3>
+                    <p class="stage-grades">Grade 9</p>
+                    <p class="stage-description">Begin focused exploration and relationship building. Start creating your strategic advantage early.</p>
+                    <ul class="stage-features">
+                        <li>The Trail Log - Track relationships & activities</li>
+                        <li>The Treasury Map - Plan college finances</li>
+                        <li>The North Star Identifier - Define your brand</li>
+                    </ul>
+                    <a href="pages/stages/pathfinder/index.html" class="stage-link">Explore Pathfinder →</a>
+                </div>
+
+                <!-- Blueprint -->
+                <div class="stage-card" data-stage="blueprint">
+                    <div class="stage-icon">📐</div>
+                    <h3 class="stage-title">The Blueprint</h3>
+                    <p class="stage-grades">Grade 10</p>
+                    <p class="stage-description">Develop your specialized narrative. Make strategic choices about your commitments and explore your potential "virtue".</p>
+                    <ul class="stage-features">
+                        <li>The Year Two Blueprint - Grade 10 checklist</li>
+                        <li>The Peak Finder - Develop your virtue</li>
+                        <li>The Horizon Scanner - Explore opportunities</li>
+                        <li>The Summit Strategy - Four-year planning</li>
+                    </ul>
+                    <a href="pages/stages/blueprint/index.html" class="stage-link">Explore Blueprint →</a>
+                </div>
+
+                <!-- Launchpad -->
+                <div class="stage-card" data-stage="launchpad">
+                    <div class="stage-icon">🚀</div>
+                    <h3 class="stage-title">The Launchpad</h3>
+                    <p class="stage-grades">Grade 11</p>
+                    <p class="stage-description">Create tangible proof points for your narrative. Begin serious college research and build your application foundation.</p>
+                    <ul class="stage-features">
+                        <li>The Year Three Launchpad - Junior year mastery</li>
+                        <li>The Apex Project Kit - Build your portfolio</li>
+                        <li>The Constellation Chart - Research colleges</li>
+                        <li>The Advocate's Brief - Recommendation support</li>
+                    </ul>
+                    <a href="pages/stages/launchpad/index.html" class="stage-link">Explore Launchpad →</a>
+                </div>
+
+                <!-- Summit -->
+                <div class="stage-card" data-stage="summit">
+                    <div class="stage-icon">⛰️</div>
+                    <h3 class="stage-title">The Summit</h3>
+                    <p class="stage-grades">Grade 12</p>
+                    <p class="stage-description">Transform years of preparation into compelling applications. Manage deadlines and perfect your presentation.</p>
+                    <ul class="stage-features">
+                        <li>The Summit Dashboard - Application tracking</li>
+                        <li>The Narrative Forge - Essay development</li>
+                        <li>The Sherpa Review - Expert feedback</li>
+                        <li>The Apex Concierge - Complete support</li>
+                    </ul>
+                    <a href="pages/stages/summit/index.html" class="stage-link">Explore Summit →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Overview -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Strategic Tools for Every Step</h2>
+                <p class="section-subtitle">Comprehensive features designed to support your unique journey to elite universities.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Progress Tracking</h3>
+                    <p class="feature-description">Visual progress indicators show your advancement through each stage with clear milestones and achievements.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Personalized Planning</h3>
+                    <p class="feature-description">Customized roadmaps based on your interests, strengths, and goals for maximum strategic impact.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Expert Guidance</h3>
+                    <p class="feature-description">Access to former admissions officers and expert consultants for professional insights and feedback.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">Comprehensive Resources</h3>
+                    <p class="feature-description">Extensive library of articles, tools, and templates covering every aspect of college preparation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your Path</h2>
+                <p class="section-subtitle">Flexible options to support your journey, from basic guidance to comprehensive expert support.</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Free Tier -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Explorer</h3>
+                        <div class="pricing-price">
+                            <span class="price-amount">Free</span>
+                        </div>
+                        <p class="pricing-description">Get started with foundational tools and content</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Access to The Ascent Doctrine</li>
+                        <li>Basic stage checklists</li>
+                        <li>Trail Log for activities</li>
+                        <li>Financial planning resources</li>
+                    </ul>
+                    <a href="pages/auth/register.html" class="btn btn-outline btn-full">Start Free</a>
+                </div>
+
+                <!-- Subscriber Tier -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Navigator</h3>
+                        <div class="pricing-price">
+                            <span class="price-amount">$29</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <p class="pricing-description">Complete suite of interactive planning tools</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>All Explorer features</li>
+                        <li>Interactive discovery tools</li>
+                        <li>Four-year strategic planner</li>
+                        <li>College research platform</li>
+                        <li>Essay development studio</li>
+                        <li>Portfolio builder</li>
+                    </ul>
+                    <a href="pages/auth/register.html" class="btn btn-primary btn-full">Start Navigator</a>
+                </div>
+
+                <!-- Premium Tier -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Sherpa</h3>
+                        <div class="pricing-price">
+                            <span class="price-amount">$199</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <p class="pricing-description">Comprehensive support with expert guidance</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>All Navigator features</li>
+                        <li>Monthly 1:1 consultations</li>
+                        <li>Essay review services</li>
+                        <li>Mock interviews</li>
+                        <li>Application optimization</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="pages/auth/register.html" class="btn btn-accent btn-full">Start Sherpa</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <span class="brand-icon">🏔️</span>
+                        <span class="brand-text">The Ascent Platform</span>
+                    </div>
+                    <p class="footer-description">Your trusted digital guide for navigating the path to elite higher education.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Journey Stages</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/stages/basecamp/index.html">The Basecamp</a></li>
+                        <li><a href="pages/stages/pathfinder/index.html">The Pathfinder</a></li>
+                        <li><a href="pages/stages/blueprint/index.html">The Blueprint</a></li>
+                        <li><a href="pages/stages/launchpad/index.html">The Launchpad</a></li>
+                        <li><a href="pages/stages/summit/index.html">The Summit</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/content/about.html">About Us</a></li>
+                        <li><a href="pages/content/blog.html">Success Stories</a></li>
+                        <li><a href="pages/content/support.html">Support</a></li>
+                        <li><a href="pages/content/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/content/privacy.html">Privacy Policy</a></li>
+                        <li><a href="pages/content/terms.html">Terms of Service</a></li>
+                        <li><a href="pages/content/cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Ascent Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core JavaScript -->
+    <script src="assets/js/core/app.js"></script>
+    <script src="assets/js/components/navigation.js"></script>
+    <script src="assets/js/components/mountain-progress.js"></script>
+</body>
+</html>
